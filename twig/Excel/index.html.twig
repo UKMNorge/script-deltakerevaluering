@@ -1,0 +1,116 @@
+{% extends "Excel:_layout.html.twig"|UKMpath %}
+
+{% block content %}
+	<div class="jumbotron">
+		<div class="container">
+			<div class="col-12">
+				<h2 class="display-4 mb-2 mt-3 pl-1">UKM-festivalen 2018</h2>
+				<h1 class="display-1 my-3">Deltakervurdering</h1>
+				<p class="lead pl-1">{{ data.num_rows }} personer har svart på undersøkelsen.</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+	
+		<div class="row">
+			<div class="col-12">
+				<h2>Om tilbakemeldingene</h2>
+				<p>
+					Denne siden viser hva deltakerne har svart i sine spørreskjema. 
+					Ca {{ ((100 / 550) * data.num_rows)|round }}% av deltakerne har fylt ut skjema.
+				</p>
+			</div>
+		</div>
+
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'D'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Deltakelse på UKM-festivalen'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'F'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'E'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'F', group: 'E', header: 'Har du vært med før, ut fra type deltaker'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AB', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AB', group: 'E', header: 'Hvordan var festivalen sammenlignet med forrige, ut fra type deltaker'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Om festivalen'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'G'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'H'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'G', group: 'H', header: 'Helhetsvurdering, ut fra hvor sliten de er', label: 'Festival-stjerner'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'Q', group: 'H', header: 'Helhetsvurdering, ut fra hvor antall workshops de deltok på', label: 'Ant workshops'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Totalbelastning (fritid)'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'L'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'E', group: 'L', adjust: [6,6], colAdjust: 80, header: 'Mengde fritid, ut fra type innslag', label: 'Type'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'Q', group: 'L', adjust: [6,6], colAdjust: 80, header: 'Mengde fritid, ut fra antall workshops', label: 'Ant workshops'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Workshops'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'Q'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'S'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'S', group: 'E', header: 'Workshop-ønsker, ut fra type innslag'} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Fylkesettermiddagen'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AE'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AE', group: 'D', header: 'Hva synes du om fylkesettermiddagen, ut fra fylke'} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Gamification'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'W'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'X'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'W', group: 'X', header: 'Hva synes du om konkurransene, ut fra antall konkurranser opplevd' } %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Olavshallen'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'I'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'I', group: 'E', header: 'Hva synes du om forestillingene, ut fra type deltaker'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AF'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AF', group: 'E', header: 'Hva synes du om at vi viste filmene i forestillingen, ut fra type deltaker'} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Landsbyen'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'M'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'M', group: 'H', header: 'Hva syns du om kveldene i landsbyen, ut fra hvor sliten du er', label: 'Grad sliten' } %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'G', group: 'M', header: 'Hva syns du om kveldene i landsbyen, ut fra helhetsvurdering' } %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'M', group: 'L', adjust: [6,6], colAdjust: 80, header: 'Hva syns du om kveldene i landsbyen, ut fra mengde fritid', label: 'Landsby-vurdering'} %}
+
+
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'K'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'U'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'U', group: 'E', header: 'Hva synes du om korslaget, ut fra type deltaker', label: 'Korslag-vurdering'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'V'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'V', group: 'E', header: 'Hva synes du om åpen scene, ut fra type deltaker'} %}
+
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'T'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'T', group: 'H', header: 'Hva synes du om rumpeldunk, ut fra sliten-skala etter festivalen', label: 'Rumpeldunk-karakter'} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Var det lett å finne frem'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'N'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'O'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'P'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Kunstnere'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AG', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'J'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'J', group: 'E', header: 'Hva synes du om utstillingen, ut fra type deltaker', label: 'Utstilling-score'} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Artister'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AH', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AJ', kunSvar: true} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Unge arrangører'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AK', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AL', kunSvar: true} %}
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'UKM Media'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AQ', kunSvar: true } %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AR', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AS', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'L', group: 'AS', kunSvar: true} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AR', group: 'AS', kunSvar: true, header: 'Skille mellom ledere og deltakere, ut fra arbeidsbelastning', label: 'Leder-vurdering'} %}
+
+
+		{% include "Excel:row-header.html.twig"|UKMpath with {header: 'Spørsmål med ukjent kontekst (hvem gikk dette til?'} %}
+		{% include "Excel:row.html.twig"|UKMpath with {col: 'AO'} %}
+	</div>
+{% endblock %}

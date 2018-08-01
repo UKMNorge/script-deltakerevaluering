@@ -1,0 +1,14 @@
+{
+    "name": "ukmnorge/festival-feedback",
+    "type": "project",
+    "description": "Oppsummering av festivalstatistikken",
+    "repositories": [
+	    {
+            "url": "https://github.com/UKMNorge/UKMresponsive.git",
+            "type": "git"
+        }
+    ],
+    "require": {
+        "ukmnorge/designbundle": "dev-master"
+    }
+}
