@@ -1,4 +1,7 @@
 <?php
+
+use Twig\Environment;
+
 class data {
 	
 	const IKKE_SVAR = 'Ikke svart';
@@ -133,7 +136,7 @@ class data {
 		return $data->getValue( $col.'1' );
 	}
 	
-	public static function count(\Twig_Environment $environment, $data, $col, $options=false ) {
+	public static function count(Environment $environment, $data, $col, $options=false ) {
 		$visKunSvar = isset( $options['kunSvar'] ) && $options['kunSvar'] == true;
 
 		$num_rows = $data->getNumRows();
@@ -165,7 +168,7 @@ class data {
 		return $environment->render( self::PREFIX . 'count.html.twig', $data );
 	}
 
-	public static function countByCol(\Twig_Environment $environment, $data, $col, $groupCol, $options=false ) {
+	public static function countByCol(Environment $environment, $data, $col, $groupCol, $options=false ) {
 		$visKunSvar = isset( $options['kunSvar'] ) && $options['kunSvar'] == true;
 
 		$data = [

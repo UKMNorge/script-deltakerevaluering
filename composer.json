@@ -2,13 +2,13 @@
     "name": "ukmnorge/festival-feedback",
     "type": "project",
     "description": "Oppsummering av festivalstatistikken",
-    "repositories": [
-	    {
-            "url": "https://github.com/UKMNorge/UKMresponsive.git",
-            "type": "git"
-        }
-    ],
+    "minimum-stability": "dev",
+    "authors": [{
+        "name": "Marius Mandal",
+        "email": "mariusmandal@ukm.no",
+        "role": "Lead Developer"
+    }],
     "require": {
-        "ukmnorge/designbundle": "dev-master"
+        "ukmnorge/designvanilla": "dev-master"
     }
 }
